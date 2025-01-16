@@ -3,8 +3,8 @@
       🍔 Components - Variables
   ------------------------------------- */
 /* -------------------------------------
-      Reset Styles
-  ------------------------------------- */
+        Reset Styles
+    ------------------------------------- */
 *,
 *::before,
 *::after {
@@ -39,8 +39,8 @@ body {
   }
 }
 /* -------------------------------------
-      🍔 Components - Header
-  ------------------------------------- */
+        🍔 Components - Header
+    ------------------------------------- */
 .c-header {
   position: absolute;
   z-index: 2;
@@ -52,6 +52,14 @@ body {
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   padding: 10px 0;
+}
+.c-header .header-secondary .dropdown-menu .link {
+  font: 600 0.75rem/1rem "Raleway", sans-serif !important;
+  padding-left: 10px !important;
+}
+.c-header .header-secondary .dropdown-menu.show {
+  left: auto;
+  right: 0;
 }
 .c-header .header-secondary .navbar-expand-md {
   flex-wrap: nowrap;
@@ -66,12 +74,13 @@ body {
   list-style-type: none;
 }
 .c-header .header-secondary .menuBar .menuBar-item .link {
+  background-color: transparent;
+  border: 0;
   border-bottom: 2px solid transparent;
   color: #fff;
   font: 600 0.86rem/1rem "Raleway", sans-serif;
   padding: 0 0 4px;
   text-decoration: none;
-  text-transform: uppercase;
   letter-spacing: 0.8px;
 }
 .c-header .header-secondary .menuBar .menuBar-item .link:hover, .c-header .header-secondary .menuBar .menuBar-item .link.active {
@@ -83,10 +92,11 @@ body {
   list-style-type: none;
 }
 .c-header .sectionList > li {
+  align-items: center;
   color: #fff;
   display: inline-flex;
   flex-direction: row;
-  gap: 12px;
+  gap: 6px;
   list-style-type: none;
   position: relative;
   margin-right: 25px;
@@ -105,6 +115,7 @@ body {
   width: 1px;
 }
 .c-header .sectionList > li .link {
+  background-color: transparent;
   color: #fff;
   font-size: 0.84rem;
   padding: 6px 0;
@@ -184,11 +195,12 @@ body {
   }
 }
 /* -------------------------------------
-      🍔 Components - Banner and Filter
-  ------------------------------------- */
+        🍔 Components - Banner and Filter
+    ------------------------------------- */
 .c-bannerAndFilter {
   position: relative;
   padding: 0;
+  overflow: hidden;
 }
 .c-bannerAndFilter.with-image {
   background: url(../images/banner.png) center no-repeat;
@@ -303,8 +315,8 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Form Elements
-  ------------------------------------- */
+        🍔 Components - Form Elements
+    ------------------------------------- */
 .c-input {
   height: 42px;
   padding: 6px;
@@ -405,8 +417,8 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Section
-  ------------------------------------- */
+        🍔 Components - Section
+    ------------------------------------- */
 .c-section {
   background-color: #fff;
   display: block;
@@ -447,8 +459,8 @@ body {
   }
 }
 /* -------------------------------------
-      🍔 Components - Slider
-  ------------------------------------- */
+        🍔 Components - Slider
+    ------------------------------------- */
 .c-slider .owl-nav {
   align-items: center;
   justify-content: center;
@@ -497,8 +509,8 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Cards 
-  ------------------------------------- */
+        🍔 Components - Cards 
+    ------------------------------------- */
 .c-card {
   border: 1px solid rgba(210, 210, 210, 0.4588235294);
 }
@@ -512,6 +524,12 @@ body {
 }
 .c-card .card-image:hover img {
   transform: scale(1.2);
+}
+.c-card .card-image .overlayRating {
+  top: 8px;
+  right: 8px;
+  position: absolute;
+  z-index: 2;
 }
 .c-card .card-image::before {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 53%, rgba(0, 0, 0, 0.6) 65%);
@@ -662,8 +680,8 @@ body {
   }
 }
 /* -------------------------------------
-      🍔 Components - Footer 
-  ------------------------------------- */
+        🍔 Components - Footer 
+    ------------------------------------- */
 .c-footer {
   background: #fff url("../images/footer-pattern.png") bottom repeat-x;
 }
@@ -694,8 +712,8 @@ body {
 }
 
 /* -------------------------------------
-      Banner Slider
-  ------------------------------------- */
+        Banner Slider
+    ------------------------------------- */
 .c-banner.type-01 {
   position: relative;
   height: 500px;
@@ -712,19 +730,45 @@ body {
   width: 60%;
   z-index: 1;
 }
-.c-banner.type-01 .js-pageSlider {
+.c-banner.type-01 .pageSlider {
   position: relative;
 }
-.c-banner.type-01 .js-pageSlider .item {
+.c-banner.type-01 .pageSlider .item {
   display: block;
   height: 600px;
   position: relative;
   width: 100%;
 }
-.c-banner.type-01 .js-pageSlider .item img {
+.c-banner.type-01 .pageSlider .item img {
   width: 100%;
 }
-.c-banner.type-01 .js-pageSlider .sliderItem::before {
+.c-banner.type-01 .pageSlider .slick-arrow {
+  border: 0;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 20px);
+  height: 40px;
+  width: 100%;
+  z-index: 2;
+}
+.c-banner.type-01 .pageSlider .slick-arrow.slick-prev, .c-banner.type-01 .pageSlider .slick-arrow.slick-next {
+  background-color: var(--secondary-color);
+  display: grid;
+  font-size: 1.8rem;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  position: absolute;
+  width: 40px;
+}
+.c-banner.type-01 .pageSlider .slick-arrow.slick-next {
+  right: 10px;
+  left: auto;
+}
+.c-banner.type-01 .pageSlider .slick-arrow.slick-prev {
+  left: 10px;
+}
+.c-banner.type-01 .pageSlider .sliderItem::before {
   background: url("../images/dot-pattern.png") repeat;
   content: "";
   height: 100%;
@@ -742,14 +786,14 @@ body {
     width: 80%;
   }
   .c-banner.type-01,
-  .c-banner.type-01 .js-pageSlider .item,
-  .c-banner.type-01 .js-pageSlider .sliderItem img {
+  .c-banner.type-01 .pageSlider .item,
+  .c-banner.type-01 .pageSlider .sliderItem img {
     height: auto;
   }
 }
 /* -------------------------------------
-      🍔 Components - Utilities 
-  ------------------------------------- */
+        🍔 Components - Utilities 
+    ------------------------------------- */
 .fs-7 {
   font-size: 0.85rem;
 }

@@ -1,21 +1,22 @@
 /* -------------------------------------
       🍔 Components - Variables
   ------------------------------------- */
+@use "sass:color";
 $primary-color: #d67f76;
 $secondary-color: #1f4ca7;
 
 $white: #fff;
 $black: #000;
 
-$bg-color: #f3f6fd;
-$highlight-color: lighten($primary-color, 30%);
-
 $primary-font: "Inter", sans-serif;
 $secondary-font: "Raleway", sans-serif;
 
+$bg-color: #f3f6fd;
+$highlight-color: color.adjust($primary-color, $lightness: 30%);
+
 /* -------------------------------------
-      Reset Styles
-  ------------------------------------- */
+        Reset Styles
+    ------------------------------------- */
 *,
 *::before,
 *::after {
@@ -51,8 +52,8 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Header
-  ------------------------------------- */
+        🍔 Components - Header
+    ------------------------------------- */
 .c-header {
   position: absolute;
   z-index: 2;
@@ -66,6 +67,16 @@ body {
       padding: 10px 0;
     }
     &-secondary {
+      .dropdown-menu {
+        .link {
+          font: 600 0.75rem/1rem $secondary-font !important;
+          padding-left: 10px !important;
+        }
+        &.show {
+          left: auto;
+          right: 0;
+        }
+      }
       .navbar-expand-md {
         flex-wrap: nowrap;
         justify-content: flex-start;
@@ -79,12 +90,13 @@ body {
         list-style-type: none;
         .menuBar-item {
           .link {
+            background-color: transparent;
+            border: 0;
             border-bottom: 2px solid transparent;
             color: $white;
             font: 600 0.86rem/1rem $secondary-font;
             padding: 0 0 4px;
             text-decoration: none;
-            text-transform: uppercase;
             letter-spacing: 0.8px;
 
             &:hover,
@@ -101,10 +113,11 @@ body {
     padding: 0;
     list-style-type: none;
     & > li {
+      align-items: center;
       color: $white;
       display: inline-flex;
       flex-direction: row;
-      gap: 12px;
+      gap: 6px;
       list-style-type: none;
       position: relative;
       margin-right: 25px;
@@ -122,6 +135,7 @@ body {
         width: 1px;
       }
       .link {
+        background-color: transparent;
         color: $white;
         font-size: 0.84rem;
         padding: 6px 0;
@@ -212,11 +226,12 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Banner and Filter
-  ------------------------------------- */
+        🍔 Components - Banner and Filter
+    ------------------------------------- */
 .c-bannerAndFilter {
   position: relative;
   padding: 0;
+  overflow: hidden;
 
   &.with-image {
     background: url(../images/banner.png) center no-repeat;
@@ -302,7 +317,7 @@ body {
 
 .roomFilter {
   align-items: center;
-  border: 1px solid darken($highlight-color, 12%);
+  border: 1px solid color.adjust($highlight-color, $lightness: -12%);
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -315,12 +330,12 @@ body {
     padding: 0 4px;
   }
   i {
-    color: darken($highlight-color, 20%);
+    color: color.adjust($highlight-color, $lightness: -20%);
   }
 }
 .c-select {
   background-color: transparent;
-  border: 1px solid darken($highlight-color, 12%);
+  border: 1px solid color.adjust($highlight-color, $lightness: -12%);
   height: 42px;
   outline: none;
   width: 100%;
@@ -337,14 +352,14 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Form Elements
-  ------------------------------------- */
+        🍔 Components - Form Elements
+    ------------------------------------- */
 .c-input {
   height: 42px;
   padding: 6px;
   border-radius: 4px;
   &.transparent {
-    border: 1px solid darken($highlight-color, 12%);
+    border: 1px solid color.adjust($highlight-color, $lightness: -12%);
     background-color: transparent;
   }
 }
@@ -367,12 +382,12 @@ body {
   &.transparent {
     .select2-container {
       .select2-selection {
-        border-color: darken($highlight-color, 10%);
+        border-color: color.adjust($highlight-color, $lightness: -10%);
         background-color: transparent;
         .select2-selection__arrow {
           b {
-            border-color: darken($highlight-color, 15%) transparent transparent
-              transparent;
+            border-color: color.adjust($highlight-color, $lightness: -15%)
+              transparent transparent transparent;
           }
         }
       }
@@ -382,7 +397,7 @@ body {
 
 .c-calendar {
   background-color: transparent;
-  border: 1px solid darken($highlight-color, 12%);
+  border: 1px solid color.adjust($highlight-color, $lightness: -12%);
   height: 42px;
   border-radius: 4px;
   .form-control {
@@ -399,7 +414,7 @@ body {
 
   &.transparent {
     .input-group-addon {
-      color: darken($highlight-color, 20%);
+      color: color.adjust($highlight-color, $lightness: -20%);
     }
   }
 }
@@ -428,7 +443,7 @@ body {
   color: $white !important;
   font-size: 0.85rem;
   &:hover {
-    background-color: darken($primary-color, 5%);
+    background-color: color.adjust($primary-color, $lightness: -5%);
   }
 
   &.is-link {
@@ -452,8 +467,8 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Section
-  ------------------------------------- */
+        🍔 Components - Section
+    ------------------------------------- */
 .c-section {
   background-color: $white;
   display: block;
@@ -497,8 +512,8 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Slider
-  ------------------------------------- */
+        🍔 Components - Slider
+    ------------------------------------- */
 .c-slider {
   .owl-nav {
     align-items: center;
@@ -555,8 +570,8 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Cards 
-  ------------------------------------- */
+        🍔 Components - Cards 
+    ------------------------------------- */
 .c-card {
   border: 1px solid #d2d2d275;
   .card {
@@ -571,6 +586,13 @@ body {
         img {
           transform: scale(1.2);
         }
+      }
+
+      .overlayRating {
+        top: 8px;
+        right: 8px;
+        position: absolute;
+        z-index: 2;
       }
       &::before {
         background: linear-gradient(
@@ -738,8 +760,8 @@ body {
 }
 
 /* -------------------------------------
-      🍔 Components - Footer 
-  ------------------------------------- */
+        🍔 Components - Footer 
+    ------------------------------------- */
 .c-footer {
   background: $white url("../images/footer-pattern.png") bottom repeat-x;
   .footer {
@@ -774,8 +796,8 @@ body {
 }
 
 /* -------------------------------------
-      Banner Slider
-  ------------------------------------- */
+        Banner Slider
+    ------------------------------------- */
 .c-banner.type-01 {
   position: relative;
   height: 500px;
@@ -793,7 +815,7 @@ body {
     z-index: 1;
   }
 
-  .js-pageSlider {
+  .pageSlider {
     position: relative;
     .item {
       display: block;
@@ -802,6 +824,35 @@ body {
       width: 100%;
       img {
         width: 100%;
+      }
+    }
+
+    .slick-arrow {
+      border: 0;
+      position: absolute;
+      left: 0;
+      top: calc(50% - 20px);
+      height: 40px;
+      width: 100%;
+      z-index: 2;
+
+      &.slick-prev,
+      &.slick-next {
+        background-color: var(--secondary-color);
+        display: grid;
+        font-size: 1.8rem;
+        height: 40px;
+        place-items: center;
+        padding: 0;
+        position: absolute;
+        width: 40px;
+      }
+      &.slick-next {
+        right: 10px;
+        left: auto;
+      }
+      &.slick-prev {
+        left: 10px;
       }
     }
 
@@ -826,15 +877,15 @@ body {
   }
 
   .c-banner.type-01,
-  .c-banner.type-01 .js-pageSlider .item,
-  .c-banner.type-01 .js-pageSlider .sliderItem img {
+  .c-banner.type-01 .pageSlider .item,
+  .c-banner.type-01 .pageSlider .sliderItem img {
     height: auto;
   }
 }
 
 /* -------------------------------------
-      🍔 Components - Utilities 
-  ------------------------------------- */
+        🍔 Components - Utilities 
+    ------------------------------------- */
 .fs-7 {
   font-size: 0.85rem;
 }

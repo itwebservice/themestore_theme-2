@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // Partner Slider
-  $(".js-pageSlider").owlCarousel({
+  $(".pageSlider").owlCarousel({
     items: 1,
     dots: true,
     smartSpeed: 800, // Duration of the transition
